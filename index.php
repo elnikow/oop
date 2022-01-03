@@ -1,11 +1,15 @@
 <?php
 
-require 'Truck.php';
+require 'Car.php';
 
-$marcel = new Truck('white', 2, 'essence', 500);
-$warRig = new Truck('black', 8, 'essence', 100);
+$sweetRide = new Car('white', 2, 'essence');
 
-echo $warRig->forward();
-echo $warRig->brake();
-$warRig->setHowFull(100);
-echo $warRig->isItFull();
+$sweetRide->setParkBrake(true);
+
+try{
+    $sweetRide->start();
+} catch(Exception $e) {
+    $sweetRide->setParkBrake(false);
+} finally {
+    echo "Ma voiture roule comme un donut";
+}
